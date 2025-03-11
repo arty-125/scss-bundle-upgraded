@@ -156,7 +156,7 @@ async function main(argv: string[]): Promise<void> {
             Log.info(renderArchy(bundleResult, projectLocation));
 
             Log.info(renderBundleInfo(bundleResult, fileRegistry));
-        } catch (error) {
+        } catch (error: any) {
             Log.error(error.message);
             process.exit(1);
         }
