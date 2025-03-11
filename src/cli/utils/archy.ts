@@ -22,8 +22,8 @@ function getArchyData(bundleResult: BundleResult, sourceDirectory?: string): arc
     }
 
     if (bundleResult.imports != null) {
-        archyData.nodes = bundleResult.imports.map(x => {
-            if (x != null) {
+        archyData.nodes = bundleResult.imports.map((x: BundleResult) => {
+            if (x.bundledContent != null) {
                 return getArchyData(x, sourceDirectory);
             }
             return "";

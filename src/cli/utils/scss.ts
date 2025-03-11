@@ -2,10 +2,10 @@ import path from "path";
 import nodeSass from "sass";
 import { CompilationError } from "../errors/compilation-error";
 
-function sassImporter(projectPath: string): nodeSass.Importer {
-    return (url, _prev, done) => {
+function sassImporter(projectPath: string) {
+    return (url: any, _prev: any, done: any) => {
         if (url[0] === "~") {
-            const filePath = path.resolve(projectPath, "node_modules", url.substr(1));
+            const filePath = path.resolve(projectPath, "node_modules", url.substring(1));
             done({
                 file: filePath
             });
@@ -15,7 +15,7 @@ function sassImporter(projectPath: string): nodeSass.Importer {
     };
 }
 
-export async function renderScss(projectPath: string | undefined, includePaths: string[] | undefined, content: string): Promise<{}> {
+export async function renderScss(projectPath: string | undefined, includePaths: string[] | undefined, content: string): Promise<any> {
     return new Promise((resolve, reject) => {
         nodeSass.render(
             {
@@ -23,7 +23,7 @@ export async function renderScss(projectPath: string | undefined, includePaths: 
                 importer: projectPath != null ? sassImporter(projectPath) : undefined,
                 includePaths: includePaths
             },
-            (error, result) => {
+            (error: any, result: any) => {
                 if (error != null) {
                     reject(new CompilationError(`${error.message} on line (${error.line}, ${error.column})`));
                 }
