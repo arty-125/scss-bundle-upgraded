@@ -1,7 +1,7 @@
 {
     "compilerOptions": {
         "module": "commonjs",
-        "target": "es5",
+        "target": "ES2022",
         "outDir": "dist",
         "rootDir": "src",
         "jsx": "react",
@@ -13,6 +13,7 @@
         "importHelpers": true,
         "esModuleInterop": true,
         "moduleResolution": "node",
+        "lib": ["ES2022", "dom"],
         "newLine": "LF"
     },
     "exclude": ["**/__tests__", "dist"]

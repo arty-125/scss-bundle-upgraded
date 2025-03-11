@@ -1,5 +1,5 @@
 {
-    "extends": "@reactway",
+    "extends": "@arty125/eslint-config-upgraded",
     "rules": {
     "@typescript-eslint/no-explicit-any": "off"
     }
